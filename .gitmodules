@@ -305,7 +305,7 @@
 	branch = .
 [submodule "build"]
 	path = tools/build
-	url = https://github.com/grafikrobot/boostorg.build.git
+	url = ../build.git
 	fetchRecurseSubmodules = on-demand
 	branch = .
 [submodule "quickbook"]
