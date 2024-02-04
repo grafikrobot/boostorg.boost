@@ -15,7 +15,7 @@ echo "|"
 echo "| Setup Boost"
 echo "|"
 ./bootstrap.sh
-./b2 -d0 headers
+./b2 headers
 echo "|"
 echo "| Build Boost"
 echo "|"
@@ -23,7 +23,7 @@ echo "|"
 echo "|"
 echo "| Install Boost"
 echo "|"
-./b2 --prefix=${rootdir}/.local install
+./b2 --prefix=${rootdir}/bin.v2/.local install
 echo "|"
 echo "| Test Boost"
 echo "|"

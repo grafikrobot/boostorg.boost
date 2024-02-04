@@ -710,7 +710,7 @@
 	branch = .
 [submodule "headers"]
 	path = libs/headers
-	url = https://github.com/grafikrobot/boostorg.headers.git
+	url = ../headers.git
 	fetchRecurseSubmodules = on-demand
 	branch = .
 [submodule "boost_install"]
@@ -745,7 +745,7 @@
 	branch = .
 [submodule "cmake"]
 	path = tools/cmake
-	url = https://github.com/grafikrobot/boostorg.cmake.git
+	url = ../cmake.git
 	fetchRecurseSubmodules = on-demand
 	branch = .
 [submodule "static_string"]
