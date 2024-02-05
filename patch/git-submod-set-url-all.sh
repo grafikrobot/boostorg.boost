@@ -8,7 +8,7 @@ while true ; do
         read -r l_url
         read -r l_frs
         read -r l_branch
-        [[ $l_name =~ submodule..([a-z_]+) ]]
+        [[ $l_name =~ submodule..([a-z_0-9]+) ]]
         l_name=${BASH_REMATCH[1]}
         [[ $l_path =~ path...(.*) ]]
         l_path=${BASH_REMATCH[1]}
