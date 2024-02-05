@@ -425,7 +425,7 @@
 	branch = .
 [submodule "signals2"]
 	path = libs/signals2
-	url = https://github.com/grafikrobot/boostorg.signals.git
+	url = https://github.com/grafikrobot/boostorg.signals2.git
 	fetchRecurseSubmodules = on-demand
 	branch = .
 [submodule "accumulators"]
@@ -485,7 +485,7 @@
 	branch = .
 [submodule "coroutine2"]
 	path = libs/coroutine2
-	url = https://github.com/grafikrobot/boostorg.coroutine.git
+	url = https://github.com/grafikrobot/boostorg.coroutine2.git
 	fetchRecurseSubmodules = on-demand
 	branch = .
 [submodule "ratio"]
@@ -665,7 +665,7 @@
 	branch = .
 [submodule "mp11"]
 	path = libs/mp11
-	url = https://github.com/grafikrobot/boostorg.mp.git
+	url = https://github.com/grafikrobot/boostorg.mp11.git
 	fetchRecurseSubmodules = on-demand
 	branch = .
 [submodule "callable_traits"]
@@ -730,7 +730,7 @@
 	branch = .
 [submodule "variant2"]
 	path = libs/variant2
-	url = https://github.com/grafikrobot/boostorg.variant.git
+	url = https://github.com/grafikrobot/boostorg.variant2.git
 	fetchRecurseSubmodules = on-demand
 	branch = .
 [submodule "nowide"]
@@ -785,7 +785,7 @@
 	branch = .
 [submodule "lambda2"]
 	path = libs/lambda2
-	url = https://github.com/grafikrobot/boostorg.lambda.git
+	url = https://github.com/grafikrobot/boostorg.lambda2.git
 	fetchRecurseSubmodules = on-demand
 	branch = .
 [submodule "property_map_parallel"]
