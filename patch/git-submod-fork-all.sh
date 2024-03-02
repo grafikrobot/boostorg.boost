@@ -24,8 +24,8 @@ while true ; do
 			echo gh repo fork boostorg/${l_name} --fork-name boostorg.${l_name} --remote --remote-name grafikrobot.boostorg.${l_name} --clone=false
 			gh repo fork boostorg/${l_name} --fork-name boostorg.${l_name} --remote --remote-name grafikrobot.boostorg.${l_name} --clone=false
 		fi
-		echo gh repo edit grafikrobot/boostorg.${l_name} --default-branch=develop
-		gh repo edit grafikrobot/boostorg.${l_name} --default-branch=develop
+		echo gh repo edit grafikrobot/boostorg.${l_name} --default-branch=modular
+		gh repo edit grafikrobot/boostorg.${l_name} --default-branch=modular
 	else
 		break
 	fi
