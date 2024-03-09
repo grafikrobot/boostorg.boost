@@ -1,0 +1,68 @@
+name: Modular
+
+on:
+  push:
+    branches:
+      - modular
+
+jobs:
+  posix:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+          - os: macos-latest
+    runs-on: ${{matrix.os}}
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@main
+        with: { submodules: true, path: "boostroot" }
+      - name: "Checkout"
+        uses: actions/checkout@main
+        with: { repository: "bfgroup/b2", path: "b2" }
+      - name: B2
+        run: |
+          cd "${{github.workspace}}/b2"
+          ./bootstrap.sh
+          ./b2 --version
+      - name: Test
+        run: |
+          cd "${{github.workspace}}/boostroot"
+          "${{github.workspace}}/b2/b2" libs/callable_traits//all
+          "${{github.workspace}}/b2/b2" libs/compatibility//all
+          "${{github.workspace}}/b2/b2" libs/compute//all
+          "${{github.workspace}}/b2/b2" libs/hof//all
+          "${{github.workspace}}/b2/b2" libs/lexical_cast//all
+          "${{github.workspace}}/b2/b2" libs/preprocessor//all
+
+  windows:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-2022
+    runs-on: ${{matrix.os}}
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@main
+        with: { submodules: true, path: "boostroot" }
+      - name: "Checkout"
+        uses: actions/checkout@main
+        with: { repository: "bfgroup/b2", path: "b2" }
+      - name: B2
+        shell: cmd
+        run: |
+          cd "${{github.workspace}}/b2"
+          ./bootstrap.bat
+          ./b2 --version
+      - name: Test
+        shell: cmd
+        run: |
+          cd "${{github.workspace}}/boostroot"
+          "${{github.workspace}}/b2/b2" libs/callable_traits//all
+          "${{github.workspace}}/b2/b2" libs/compatibility//all
+          "${{github.workspace}}/b2/b2" libs/compute//all
+          "${{github.workspace}}/b2/b2" libs/hof//all
+          "${{github.workspace}}/b2/b2" libs/lexical_cast//all
+          "${{github.workspace}}/b2/b2" libs/preprocessor//all
