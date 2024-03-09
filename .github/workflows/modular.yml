@@ -31,8 +31,6 @@ jobs:
       run:
         shell: ${{matrix.shell}}
         working-directory: ${{github.workspace}}/boostroot
-    env:
-      B2: ${{github.workspace}}/b2/b2
     steps:
       - name: "Checkout Boost"
         uses: actions/checkout@main
@@ -45,16 +43,16 @@ jobs:
         run: ./bootstrap.${{matrix.ext}}
       - name: callable_traits
         if: ${{ !contains(matrix.skip, 'callable_traits') }}
-        run: '"${B2}" libs/callable_traits//all'
+        run: '"${{github.workspace}}/b2/b2" libs/callable_traits//all'
       - name: compatibility
         if: ${{ !contains(matrix.skip, 'compatibility') }}
-        run: '"${B2}" libs/compatibility//all'
+        run: '"${{github.workspace}}/b2/b2" libs/compatibility//all'
       - name: hof
         if: ${{ !contains(matrix.skip, 'hof') }}
-        run: '"${B2}" libs/hof//all'
+        run: '"${{github.workspace}}/b2/b2" libs/hof//all'
       - name: lexical_cast
         if: ${{ !contains(matrix.skip, 'lexical_cast') }}
-        run: '"${B2}" libs/lexical_cast//all'
+        run: '"${{github.workspace}}/b2/b2" libs/lexical_cast//all'
       - name: preprocessor
         if: ${{ !contains(matrix.skip, 'preprocessor') }}
-        run: '"${B2}" libs/preprocessor//all'
+        run: '"${{github.workspace}}/b2/b2" libs/preprocessor//all'
