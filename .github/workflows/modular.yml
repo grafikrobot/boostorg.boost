@@ -6,13 +6,19 @@ on:
       - modular
 
 jobs:
-  posix:
+  all:
     strategy:
       fail-fast: false
       matrix:
         include:
           - os: ubuntu-latest
-          - os: macos-latest
+            shell: "bash"
+          - os: macos-13
+            shell: "bash"
+            skip: ["lexical_cast"]
+          - os: windows-2022
+            shell: "cmd"
+            skip: ["hof"]
     runs-on: ${{matrix.os}}
     steps:
       - name: "Checkout"
@@ -22,36 +28,34 @@ jobs:
         uses: actions/checkout@main
         with: { repository: "bfgroup/b2", path: "b2" }
       - name: B2
+        if: matrix.shell != 'bash'
+        shell: bash
         run: |
           cd "${{github.workspace}}/b2"
           ./bootstrap.sh
-      - { name: callable_traits, run: 'set -e && cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/callable_traits//all' }
-      - { name: compatibility, run: 'set -e && cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/compatibility//all' }
-      - { name: hof, run: 'set -e && cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/hof//all' }
-      - { name: lexical_cast, run: 'set -e && cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/lexical_cast//all' }
-      - { name: preprocessor, run: 'set -e && cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/preprocessor//all' }
-
-  windows:
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - os: windows-2022
-    runs-on: ${{matrix.os}}
-    steps:
-      - name: "Checkout"
-        uses: actions/checkout@main
-        with: { submodules: true, path: "boostroot" }
-      - name: "Checkout"
-        uses: actions/checkout@main
-        with: { repository: "bfgroup/b2", path: "b2" }
       - name: B2
+        if: matrix.shell == 'cmd'
         shell: cmd
         run: |
           cd "${{github.workspace}}/b2"
           ./bootstrap.bat
-      - { name: callable_traits, shell: cmd, run: 'cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/callable_traits//all' }
-      - { name: compatibility, shell: cmd, run: 'cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/compatibility//all' }
-      # - { name: hof, shell: cmd, run: 'cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/hof//all' }
-      - { name: lexical_cast, shell: cmd, run: 'cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/lexical_cast//all' }
-      - { name: preprocessor, shell: cmd, run: 'cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/preprocessor//all' }
+      - name: callable_traits
+        if: ${{ !contains(${{matrix.skip}}, 'callable_traits') }}
+        shell: ${{matrix.shell}}
+        run: 'cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/callable_traits//all'
+      - name: compatibility
+        if: ${{ !contains(${{matrix.skip}}, 'compatibility') }}
+        shell: ${{matrix.shell}}
+        run: 'cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/compatibility//all'
+      - name: hof
+        if: ${{ !contains(${{matrix.skip}}, 'hof') }}
+        shell: ${{matrix.shell}}
+        run: 'cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/hof//all'
+      - name: lexical_cast
+        if: ${{ !contains(${{matrix.skip}}, 'lexical_cast') }}
+        shell: ${{matrix.shell}}
+        run: 'cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/lexical_cast//all'
+      - name: preprocessor
+        if: ${{ !contains(${{matrix.skip}}, 'preprocessor') }}
+        shell: ${{matrix.shell}}
+        run: 'cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/preprocessor//all'
