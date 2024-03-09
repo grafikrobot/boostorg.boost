@@ -40,22 +40,22 @@ jobs:
           cd "${{github.workspace}}/b2"
           ./bootstrap.bat
       - name: callable_traits
-        if: ${{ !contains(${{matrix.skip}}, 'callable_traits') }}
+        if: ${{ !contains(matrix.skip, 'callable_traits') }}
         shell: ${{matrix.shell}}
         run: 'cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/callable_traits//all'
       - name: compatibility
-        if: ${{ !contains(${{matrix.skip}}, 'compatibility') }}
+        if: ${{ !contains(matrix.skip, 'compatibility') }}
         shell: ${{matrix.shell}}
         run: 'cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/compatibility//all'
       - name: hof
-        if: ${{ !contains(${{matrix.skip}}, 'hof') }}
+        if: ${{ !contains(matrix.skip, 'hof') }}
         shell: ${{matrix.shell}}
         run: 'cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/hof//all'
       - name: lexical_cast
-        if: ${{ !contains(${{matrix.skip}}, 'lexical_cast') }}
+        if: ${{ !contains(matrix.skip, 'lexical_cast') }}
         shell: ${{matrix.shell}}
         run: 'cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/lexical_cast//all'
       - name: preprocessor
-        if: ${{ !contains(${{matrix.skip}}, 'preprocessor') }}
+        if: ${{ !contains(matrix.skip, 'preprocessor') }}
         shell: ${{matrix.shell}}
         run: 'cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/preprocessor//all'
