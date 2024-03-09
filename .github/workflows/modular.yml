@@ -31,13 +31,13 @@ jobs:
         uses: actions/checkout@main
         with: { repository: "bfgroup/b2", path: "b2" }
       - name: B2
-        if: matrix.shell != 'bash'
+        if: ${{ matrix.shell == 'bash' }}
         shell: bash
         run: |
           cd "${{github.workspace}}/b2"
           ./bootstrap.sh
       - name: B2
-        if: matrix.shell == 'cmd'
+        if: ${{ matrix.shell == 'cmd' }}
         shell: cmd
         run: |
           cd "${{github.workspace}}/b2"
