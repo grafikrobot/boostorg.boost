@@ -25,12 +25,11 @@ jobs:
         run: |
           cd "${{github.workspace}}/b2"
           ./bootstrap.sh
-      - { name: Test, run: 'set -e && cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/callable_traits//all' }
-      - { name: Test, run: 'set -e && cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/compatibility//all' }
-      - { name: Test, run: 'set -e && cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/compute//all' }
-      - { name: Test, run: 'set -e && cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/hof//all' }
-      - { name: Test, run: 'set -e && cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/lexical_cast//all' }
-      - { name: Test, run: 'set -e && cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/preprocessor//all' }
+      - { name: callable_traits, run: 'set -e && cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/callable_traits//all' }
+      - { name: compatibility, run: 'set -e && cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/compatibility//all' }
+      - { name: hof, run: 'set -e && cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/hof//all' }
+      - { name: lexical_cast, run: 'set -e && cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/lexical_cast//all' }
+      - { name: preprocessor, run: 'set -e && cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/preprocessor//all' }
 
   windows:
     strategy:
@@ -51,9 +50,8 @@ jobs:
         run: |
           cd "${{github.workspace}}/b2"
           ./bootstrap.bat
-      - { name: Test, shell: cmd, run: 'cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/callable_traits//all' }
-      - { name: Test, shell: cmd, run: 'cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/compatibility//all' }
-      - { name: Test, shell: cmd, run: 'cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/compute//all' }
-      - { name: Test, shell: cmd, run: 'cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/hof//all' }
-      - { name: Test, shell: cmd, run: 'cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/lexical_cast//all' }
-      - { name: Test, shell: cmd, run: 'cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/preprocessor//all' }
+      - { name: callable_traits, shell: cmd, run: 'cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/callable_traits//all' }
+      - { name: compatibility, shell: cmd, run: 'cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/compatibility//all' }
+      - { name: hof, shell: cmd, run: 'cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/hof//all' }
+      - { name: lexical_cast, shell: cmd, run: 'cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/lexical_cast//all' }
+      - { name: preprocessor, shell: cmd, run: 'cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/preprocessor//all' }
