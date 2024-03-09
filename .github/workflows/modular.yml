@@ -11,49 +11,50 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - os: ubuntu-latest
+          - name: Linux
+            skip: []
+            os: ubuntu-latest
             shell: "bash"
-          - os: macos-13
-            shell: "bash"
+            ext: "sh"
+          - name: macOS
             skip: ["lexical_cast"]
-          - os: windows-2022
-            shell: "cmd"
+            os: macos-13
+            shell: "bash"
+            ext: "sh"
+          - name: Windows
             skip: ["hof"]
+            os: windows-2022
+            shell: "cmd"
+            ext: "bat"
     runs-on: ${{matrix.os}}
     defaults:
       run:
         shell: ${{matrix.shell}}
+        working-directory: ${{github.workspace}}/boostroot
+    env:
+      B2: ${{github.workspace}}/b2/b2
     steps:
-      - name: "Checkout"
+      - name: "Checkout Boost"
         uses: actions/checkout@main
         with: { submodules: true, path: "boostroot" }
-      - name: "Checkout"
+      - name: "Checkout B2"
         uses: actions/checkout@main
         with: { repository: "bfgroup/b2", path: "b2" }
       - name: B2
-        if: ${{ matrix.shell == 'bash' }}
-        shell: bash
-        run: |
-          cd "${{github.workspace}}/b2"
-          ./bootstrap.sh
-      - name: B2
-        if: ${{ matrix.shell == 'cmd' }}
-        shell: cmd
-        run: |
-          cd "${{github.workspace}}/b2"
-          ./bootstrap.bat
+        working-directory: ${{github.workspace}}/b2
+        run: ./bootstrap.${{matrix.ext}}
       - name: callable_traits
         if: ${{ !contains(matrix.skip, 'callable_traits') }}
-        run: 'cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/callable_traits//all'
+        run: '"${B2}" libs/callable_traits//all'
       - name: compatibility
         if: ${{ !contains(matrix.skip, 'compatibility') }}
-        run: 'cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/compatibility//all'
+        run: '"${B2}" libs/compatibility//all'
       - name: hof
         if: ${{ !contains(matrix.skip, 'hof') }}
-        run: 'cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/hof//all'
+        run: '"${B2}" libs/hof//all'
       - name: lexical_cast
         if: ${{ !contains(matrix.skip, 'lexical_cast') }}
-        run: 'cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/lexical_cast//all'
+        run: '"${B2}" libs/lexical_cast//all'
       - name: preprocessor
         if: ${{ !contains(matrix.skip, 'preprocessor') }}
-        run: 'cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/preprocessor//all'
+        run: '"${B2}" libs/preprocessor//all'
