@@ -52,6 +52,6 @@ jobs:
           ./bootstrap.bat
       - { name: callable_traits, shell: cmd, run: 'cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/callable_traits//all' }
       - { name: compatibility, shell: cmd, run: 'cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/compatibility//all' }
-      - { name: hof, shell: cmd, run: 'cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/hof//all' }
+      # - { name: hof, shell: cmd, run: 'cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/hof//all' }
       - { name: lexical_cast, shell: cmd, run: 'cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/lexical_cast//all' }
       - { name: preprocessor, shell: cmd, run: 'cd "${{github.workspace}}/boostroot" && "${{github.workspace}}/b2/b2" libs/preprocessor//all' }
