@@ -199,8 +199,9 @@ project /boost
     : build-dir bin.v2
     ;
 
-# General, top-level, modular project searching.
-project-search /boost : libs ;
+# General, top-level, modular project searching. Also include tools in the
+# project search.
+project-search /boost : libs tools ;
 # Temporary custom project searching to account for special library paths.
 project-search /boost : libs/numeric ;
 project-search /boost/numeric_conversion : libs/numeric/conversion ;
