@@ -31,8 +31,8 @@ while true ; do
 		git fetch -p upstream
 		echo git checkout modular
 		git checkout modular
-		echo git pull modular
-		git pull modular
+		echo git pull origin modular
+		git pull origin modular
 		echo git merge upstream/develop -m "Sync from upstream."
 		git merge upstream/develop -m "Sync from upstream."
 		echo git status -s -b
