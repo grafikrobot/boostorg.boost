@@ -41,6 +41,9 @@ jobs:
       - name: B2
         working-directory: ${{github.workspace}}/b2
         run: ./bootstrap.${{matrix.ext}}
+      - name: accumulators
+        if: ${{ !contains(matrix.skip, 'accumulators') }}
+        run: '"${{github.workspace}}/b2/b2" libs/accumulators//all'
       - name: callable_traits
         if: ${{ !contains(matrix.skip, 'callable_traits') }}
         run: '"${{github.workspace}}/b2/b2" libs/callable_traits//all'

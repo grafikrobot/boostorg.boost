@@ -276,13 +276,30 @@ all-libraries-to-build = [ set.difference $(all-libraries-to-build) : $(all-libr
 # The header only libraries that are not of the new modular form. For which we
 # will create synthetic projects and targets to simulate the new modular form.
 local all-libraries-to-declare
-    = [ SORT [ set.difference $(all-libraries)
-        : $(all-libraries-modular-build) $(all-libraries-to-build) ]
-        numeric_conversion interval odeint ublas ] ;
+    = [ set.difference $(all-libraries)
+        : $(all-libraries-modular-build) $(all-libraries-to-build) ] ;
+if ! [ glob libs/numeric/conversion/build.jam ]
+{
+    all-libraries-to-declare += numeric_conversion ;
+}
+if ! [ glob libs/numeric/interval/build.jam ]
+{
+    all-libraries-to-declare += interval ;
+}
+if ! [ glob libs/numeric/odeint/build.jam ]
+{
+    all-libraries-to-declare += odeint ;
+}
+if ! [ glob libs/numeric/ublas/build.jam ]
+{
+    all-libraries-to-declare += ublas ;
+}
+all-libraries-to-declare = [ SORT $(all-libraries-to-declare) ] ;
 
 # ECHO "INFO: Build Libraries:" [ SORT $(all-libraries-to-build) ] ;
 # ECHO "INFO: Modular Libraries:" [ SORT $(all-libraries-modular-build) ] ;
 # ECHO "INFO: Declared Libraries:" [ SORT $(all-libraries-to-declare) ] ;
+# EXIT : 0 ;
 
 # Setup convenient aliases for all libraries.
 
