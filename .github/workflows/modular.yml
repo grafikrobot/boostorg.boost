@@ -47,12 +47,21 @@ jobs:
       - name: compatibility
         if: ${{ !contains(matrix.skip, 'compatibility') }}
         run: '"${{github.workspace}}/b2/b2" libs/compatibility//all'
+      - name: filesystem
+        if: ${{ !contains(matrix.skip, 'filesystem') }}
+        run: '"${{github.workspace}}/b2/b2" libs/filesystem//all'
       - name: hof
         if: ${{ !contains(matrix.skip, 'hof') }}
         run: '"${{github.workspace}}/b2/b2" libs/hof//all'
       - name: lexical_cast
         if: ${{ !contains(matrix.skip, 'lexical_cast') }}
         run: '"${{github.workspace}}/b2/b2" libs/lexical_cast//all'
+      - name: mp11
+        if: ${{ !contains(matrix.skip, 'mp11') }}
+        run: '"${{github.workspace}}/b2/b2" libs/mp11//all'
+      - name: predef
+        if: ${{ !contains(matrix.skip, 'predef') }}
+        run: '"${{github.workspace}}/b2/b2" libs/predef//all'
       - name: preprocessor
         if: ${{ !contains(matrix.skip, 'preprocessor') }}
         run: '"${{github.workspace}}/b2/b2" libs/preprocessor//all'
