@@ -153,7 +153,7 @@ constant BOOST_JAMROOT_MODULE : $(__name__) ;
 
 # Allow subprojects to simply `import config : requires ;` to get access to the requires rule
 import-search $(BOOST_ROOT)/libs/config/checks ;
-import-search $(BOOST_ROOT)/libs/predef/tools/checks ;
+import-search $(BOOST_ROOT)/libs/predef/tools/check ;
 
 boostcpp.set-version $(BOOST_VERSION) ;
 
