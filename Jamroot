@@ -296,9 +296,9 @@ if ! [ glob libs/numeric/ublas/build.jam ]
 }
 all-libraries-to-declare = [ SORT $(all-libraries-to-declare) ] ;
 
-# ECHO "INFO: Build Libraries:" [ SORT $(all-libraries-to-build) ] ;
-# ECHO "INFO: Modular Libraries:" [ SORT $(all-libraries-modular-build) ] ;
-# ECHO "INFO: Declared Libraries:" [ SORT $(all-libraries-to-declare) ] ;
+ECHO "INFO: Build Libraries:" [ SORT $(all-libraries-to-build) ] ;
+ECHO "INFO: Modular Libraries:" [ SORT $(all-libraries-modular-build) ] ;
+ECHO "INFO: Declared Libraries:" [ SORT $(all-libraries-to-declare) ] ;
 # EXIT : 0 ;
 
 # Setup convenient aliases for all libraries.
@@ -409,6 +409,7 @@ boostcpp.declare-targets $(all-libraries-to-build) $(all-libraries-modular-build
 #
 rule boost-library ( id ? : options * : * )
 {
+    ECHO "INFO: Declare Boost library:" $(id) ;
     local called-boost-install ;
     for n in 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
     {
