@@ -34,16 +34,16 @@ jobs:
 
       - name: Build Boost
         run: |
-          ./b2 -j3 stage
+          ./b2 stage
 
       - name: Install Boost
         run: |
-          ./b2 -j3 --prefix=$HOME/.local install
+          ./b2 --prefix=$HOME/.local install
 
       - name: Test Boost
         run: |
           cd status
-          ../b2 -j3 quick
+          ../b2 quick
 
   b2-windows:
     strategy:
@@ -64,20 +64,21 @@ jobs:
         shell: cmd
         run: |
           cmd /c bootstrap
+          b2 -v
           b2 -d0 headers
 
       - name: Build Boost
         run: |
-          ./b2 -j3 stage
+          ./b2 stage link=static
 
       - name: Install Boost
         run: |
-          ./b2 -j3 install
+          ./b2 install link=static
 
       - name: Test Boost
         run: |
           cd status
-          ../b2 -j3 quick
+          ../b2 quick link=static
 
   cmake-install-posix:
     strategy:
