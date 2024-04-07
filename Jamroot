@@ -417,7 +417,7 @@ rule boost-library ( id ? : options * : * )
         if $(option)
         {
             call-if : boost-$(option[1]) $(option[2-]) ;
-            if $(option[1]) = library
+            if $(option[1]) = install
             {
                 called-boost-install = true ;
             }
