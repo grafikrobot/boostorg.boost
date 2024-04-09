@@ -360,7 +360,7 @@ if [ path.exists $(BOOST_ROOT)/tools/inspect/build ]
 
 if [ path.exists $(BOOST_ROOT)/libs/wave/tool/build ]
 {
-    use-project /boost/libs/wave/tool : libs/wave/tool/build ;
+    use-project /boost/libs/wave/tool : $(BOOST_ROOT)/libs/wave/tool/build ;
 }
 
 # Make the boost-install rule visible in subprojects
