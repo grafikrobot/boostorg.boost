@@ -327,9 +327,6 @@ for local l in $(all-libraries-modular-build)
     }
 }
 
-# Log has an additional target
-explicit [ alias log_setup : libs/log/build//boost_log_setup ] ;
-
 rule do-nothing { }
 
 rule generate-alias ( project name : property-set : sources * )
