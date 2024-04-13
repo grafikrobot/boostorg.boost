@@ -9,5 +9,16 @@
 # Jamfile which builds or installs all the tools.
 
 alias dist
-    : auto_index//dist bcp//dist  boost_install//dist boostbook//dist
+    :   auto_index//dist
+        bcp//dist
+        boost_install//dist
+        boostbook//dist
+        boostdep//dist
+        inspect//dist
+        quickbook//dist
+    :
+    :   # default-build
+        release
+        <link>static
+        <cxxstd>11
     ;
