@@ -13,8 +13,8 @@ jobs:
       matrix:
         include:
           - name: Linux
-            image: "cppalliance/boost_superproject_build:20.04-v4"
-    runs-on: ubuntu-latest
+            os: ubuntu-latest
+    runs-on: ${{matrix.os}}
     defaults:
       run:
         working-directory: ${{github.workspace}}/boostroot
@@ -22,6 +22,33 @@ jobs:
       - name: "Checkout"
         uses: actions/checkout@main
         with: { submodules: true, path: "boostroot" }
+      - name: "Setup"
+        run: |
+          sudo apt-get -o Acquire::Retries=3 update
+          sudo apt-get -o Acquire::Retries=3 -y install \
+            p7zip-full \
+            curl \
+            docutils-common \
+            docutils-doc \
+            docbook \
+            docbook-xml \
+            docbook-xsl \
+            dvipsk-ja \
+            xsltproc \
+            graphviz \
+            texlive \
+            ghostscript \
+            unzip \
+            ruby \
+            python-docutils \
+            libsaxonhe-java \
+            cmake \
+            bison \
+            flex \
+            texlive-latex-extra \
+            default-jre-headless \
+            doxygen
+          pip3 install future
       - name: "Release"
         run: |
           wget "https://raw.githubusercontent.com/boostorg/release-tools/develop/ci_boost_common.py" -P ${{github.workspace}}
