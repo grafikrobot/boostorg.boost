@@ -22,12 +22,12 @@ jobs:
         shell: ${{matrix.shell}}
         working-directory: ${{github.workspace}}/boostroot
     steps:
-      - name: "Setup"
-        run: |
-          pip3 install future
       - name: "Checkout"
         uses: actions/checkout@main
         with: { submodules: true, path: "boostroot" }
+      - name: "Setup"
+        run: |
+          pip3 install future
       - name: "Release"
         run: |
           wget "https://raw.githubusercontent.com/boostorg/release-tools/develop/ci_boost_common.py" -P ${{github.workspace}}
