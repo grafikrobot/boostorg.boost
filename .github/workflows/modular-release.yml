@@ -33,14 +33,12 @@ jobs:
             docbook \
             docbook-xml \
             docbook-xsl \
-            dvipsk-ja \
             xsltproc \
             graphviz \
             texlive \
             ghostscript \
             unzip \
             ruby \
-            python-docutils \
             libsaxonhe-java \
             cmake \
             bison \
