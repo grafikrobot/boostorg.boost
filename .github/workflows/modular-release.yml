@@ -1,33 +1,27 @@
 name: Modular Release
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - modular
 
 jobs:
-  all:
+  release:
     strategy:
       fail-fast: false
       matrix:
         include:
           - name: Linux
-            skip: []
-            os: ubuntu-latest
-            shell: "bash"
-            ext: "sh"
-    runs-on: ${{matrix.os}}
+            image: "multiarch/ubuntu-debootstrap:armhf-jammy"
+    runs-on: ubuntu-latest
     defaults:
       run:
-        shell: ${{matrix.shell}}
         working-directory: ${{github.workspace}}/boostroot
     steps:
       - name: "Checkout"
         uses: actions/checkout@main
         with: { submodules: true, path: "boostroot" }
-      - name: "Setup"
-        run: |
-          pip3 install future
       - name: "Release"
         run: |
           wget "https://raw.githubusercontent.com/boostorg/release-tools/develop/ci_boost_common.py" -P ${{github.workspace}}
