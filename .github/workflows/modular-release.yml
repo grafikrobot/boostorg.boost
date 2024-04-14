@@ -13,7 +13,7 @@ jobs:
       matrix:
         include:
           - name: Linux
-            image: "multiarch/ubuntu-debootstrap:armhf-jammy"
+            image: "cppalliance/boost_superproject_build:20.04-v4"
     runs-on: ubuntu-latest
     defaults:
       run:
