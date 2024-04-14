@@ -22,6 +22,9 @@ jobs:
         shell: ${{matrix.shell}}
         working-directory: ${{github.workspace}}/boostroot
     steps:
+      - name: "Setup"
+        run: |
+          pip3 install future
       - name: "Checkout"
         uses: actions/checkout@main
         with: { submodules: true, path: "boostroot" }
