@@ -41,6 +41,7 @@ jobs:
             ghostscript \
             graphviz \
             libsaxonhe-java \
+            myst-parser \
             p7zip-full \
             python3-dev \
             ruby \
@@ -49,12 +50,12 @@ jobs:
             unzip \
             xsltproc
           pip3 install future
-      - name: "Release"
-        run: |
           wget "https://raw.githubusercontent.com/boostorg/release-tools/develop/ci_boost_common.py" -P ${{github.workspace}}
           wget "https://raw.githubusercontent.com/boostorg/release-tools/develop/ci_boost_release.py" -P ${{github.workspace}}
           python3 ${{github.workspace}}/ci_boost_release.py install
           pip3 install --user --upgrade Sphinx==5.2.1
+      - name: "Release"
+        run: |
           python3 ${{github.workspace}}/ci_boost_release.py checkout_post
           EOL=LF python3 ${{github.workspace}}/ci_boost_release.py test_pre
           EOL=LF python3 ${{github.workspace}}/ci_boost_release.py test_override
