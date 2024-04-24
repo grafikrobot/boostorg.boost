@@ -36,6 +36,7 @@ jobs:
             docbook-xsl \
             docutils-common \
             docutils-doc \
+            dos2unix \
             doxygen \
             flex \
             ghostscript \
