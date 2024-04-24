@@ -54,7 +54,7 @@ jobs:
           wget "https://raw.githubusercontent.com/boostorg/release-tools/develop/ci_boost_common.py" -P ${{github.workspace}}
           wget "https://raw.githubusercontent.com/boostorg/release-tools/develop/ci_boost_release.py" -P ${{github.workspace}}
           python3 ${{github.workspace}}/ci_boost_release.py install
-          pip3 upgrade --user --upgrade Sphinx
+          pip3 install --user --upgrade Sphinx
           python3 ${{github.workspace}}/ci_boost_release.py checkout_post
           EOL=LF python3 ${{github.workspace}}/ci_boost_release.py test_pre
           EOL=LF python3 ${{github.workspace}}/ci_boost_release.py test_override
