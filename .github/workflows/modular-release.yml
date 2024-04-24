@@ -26,27 +26,28 @@ jobs:
         run: |
           sudo apt-get -o Acquire::Retries=3 update
           sudo apt-get -o Acquire::Retries=3 -y install \
-            p7zip-full \
+            asciidoctor \
+            bison \
+            cmake \
             curl \
-            docutils-common \
-            docutils-doc \
+            default-jre-headless \
             docbook \
             docbook-xml \
             docbook-xsl \
-            xsltproc \
-            graphviz \
-            texlive \
-            ghostscript \
-            unzip \
-            ruby \
-            libsaxonhe-java \
-            cmake \
-            bison \
-            flex \
-            texlive-latex-extra \
-            default-jre-headless \
+            docutils-common \
+            docutils-doc \
             doxygen \
-            python3-dev
+            flex \
+            ghostscript \
+            graphviz \
+            libsaxonhe-java \
+            p7zip-full \
+            python3-dev \
+            ruby \
+            texlive \
+            texlive-latex-extra \
+            unzip \
+            xsltproc
           pip3 install future
       - name: "Release"
         run: |
