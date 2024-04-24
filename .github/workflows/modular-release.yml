@@ -41,7 +41,7 @@ jobs:
             ghostscript \
             graphviz \
             libsaxonhe-java \
-            myst-parser \
+            python3-myst-parser \
             p7zip-full \
             python3-dev \
             ruby \
