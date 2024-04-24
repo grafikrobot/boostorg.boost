@@ -45,7 +45,8 @@ jobs:
             flex \
             texlive-latex-extra \
             default-jre-headless \
-            doxygen
+            doxygen \
+            python3-dev
           pip3 install future
       - name: "Release"
         run: |
