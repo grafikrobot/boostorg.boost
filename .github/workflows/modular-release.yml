@@ -54,6 +54,8 @@ jobs:
           wget "https://raw.githubusercontent.com/boostorg/release-tools/develop/ci_boost_release.py" -P ${{github.workspace}}
           python3 ${{github.workspace}}/ci_boost_release.py install
           pip3 install --user --upgrade Sphinx==5.2.1
+          gem install asciidoctor
+          gem install asciidoctor-diagram
       - name: "Release"
         run: |
           python3 ${{github.workspace}}/ci_boost_release.py checkout_post
