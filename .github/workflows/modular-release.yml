@@ -53,7 +53,7 @@ jobs:
           pip3 install future
           wget "https://raw.githubusercontent.com/boostorg/release-tools/develop/ci_boost_common.py" -P ${{github.workspace}}
           wget "https://raw.githubusercontent.com/boostorg/release-tools/develop/ci_boost_release.py" -P ${{github.workspace}}
-          sed "s/, libdoc_branch/, 'develop'/" ${{github.workspace}}/ci_boost_release.py
+          sed -i "s/, libdoc_branch/, 'develop'/" ${{github.workspace}}/ci_boost_release.py
           python3 ${{github.workspace}}/ci_boost_release.py install
           pip3 install --user --upgrade Sphinx==5.2.1
           sudo gem install asciidoctor asciidoctor-diagram
