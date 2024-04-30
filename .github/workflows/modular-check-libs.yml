@@ -259,7 +259,7 @@ jobs:
           - icl
           - integer
           - interprocess
-          - interval
+          - numeric/interval
           - intrusive
           - io
           - iostreams
@@ -286,8 +286,8 @@ jobs:
           - multiprecision
           - mysql
           - nowide
-          - numeric_conversion
-          - odeint
+          - numeric/conversion
+          - numeric/odeint
           - optional
           - outcome
           - parameter
@@ -339,7 +339,7 @@ jobs:
           - type_index
           - type_traits
           - typeof
-          - ublas
+          - numeric/ublas
           - units
           - unordered
           - url
