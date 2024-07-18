@@ -49,5 +49,10 @@ git fetch -p upstream
 echo git merge upstream/develop -m "Sync from upstream."
 git merge upstream/develop -m "Sync from upstream."
 
+echo "===== status"
+cd "${rootdir}"
+git submodule foreach git status -sb
+git status -sb
+
 cd "${rootdir}"
 echo "*****" `pwd`
