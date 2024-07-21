@@ -24,9 +24,19 @@ while true ; do
             cd "${rootdir}/${l_path}"
             echo git status -s -b
             git status -s -b
-            sleep 3
-            echo gh pr create -b develop -d -F "${patchdir}/mod-pr-${1}.md" -t "Add support for modular build structure."
-            gh pr create -b develop -d -F "${patchdir}/mod-pr-${1}.md" -t "Add support for modular build structure."
+            l_upstream=`git remote get-url --push upstream`
+            l_repo=${l_upstream#https://github.com/boostorg/}
+            l_repo=${l_repo/.git/}
+            echo "gh pr list --repo=boostorg/${l_repo} --head=modular --json=number | grep -E \"([0-9]+)\" -o"
+            l_pr=`gh pr list --repo=boostorg/${l_repo} --head=modular --json=number | grep -E "([0-9]+)" -o`
+            echo "..... ${l_upstream} -- ${l_repo} -- ${l_pr}"
+            sleep 1
+            if test -z "${l_pr}" ; then
+                echo gh pr create -b develop -d -F "${patchdir}/mod-pr-${1}.md" -t "Add support for modular build structure."
+                sleep 1
+                gh pr create -b develop -d -F "${patchdir}/mod-pr-${1}.md" -t "Add support for modular build structure."
+                sleep 1
+            fi
         fi
     else
         break

@@ -12,3 +12,5 @@ This PR depends on the following other PRs being merged to both develop and mast
 - https://github.com/boostorg/docca/pull/143
 - https://github.com/boostorg/inspect/pull/19
 - https://github.com/boostorg/quickbook/pull/25
+
+This PR will be changed to ready for review, i.e. not draft, when the above are merged. Do not merge this one until that time.
