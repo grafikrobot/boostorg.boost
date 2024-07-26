@@ -24,7 +24,7 @@ while true ; do
             echo "===== ${l_name} -- ${l_url} -- ${l_path}"
             cd "${rootdir}/${l_path}"
             echo "git push"
-            # git push
+            git push
             ;;
         esac
     else
