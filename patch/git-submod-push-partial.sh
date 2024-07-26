@@ -20,7 +20,7 @@ while true ; do
         [[ $l_url =~ url...(.*) ]]
         l_url=${BASH_REMATCH[1]}
         case ${l_name} in
-            core | geometry | locale | log | mysql | variant2 | winapi )
+            core | geometry | locale | log | mysql | test | variant2 | winapi )
             echo "===== ${l_name} -- ${l_url} -- ${l_path}"
             cd "${rootdir}/${l_path}"
             echo "git push"
