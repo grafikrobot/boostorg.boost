@@ -183,7 +183,8 @@ jobs:
           sudo apt-get -o Acquire::Retries=3 update -y
           sudo apt-get -o Acquire::Retries=3 -y install \
             g++-13 \
-            liburing-dev
+            liburing-dev \
+            doxygen
       - name: "Checkout Boost Root"
         uses: actions/checkout@main
         with: { submodules: true, path: "boostroot" }
