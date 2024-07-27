@@ -195,4 +195,4 @@ jobs:
         working-directory: ${{github.workspace}}/b2
         run: ./bootstrap.sh
       - name: Check
-        run: '"${{github.workspace}}/b2/b2" --debug-configuration "--build-dir=${{github.workspace}}/bin" libs/${{matrix.lib}}/doc//boostdoc'
+        run: '"${{github.workspace}}/b2/b2" --debug-configuration "--build-dir=${{github.workspace}}/bin" libs/${{matrix.lib}}/doc//boostdoc libs/${{matrix.lib}}/doc//boostrelease'
