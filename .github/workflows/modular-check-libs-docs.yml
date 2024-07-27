@@ -194,5 +194,9 @@ jobs:
       - name: B2
         working-directory: ${{github.workspace}}/b2
         run: ./bootstrap.sh
+      - name: BoostBook
+        run: |
+          cd tools/boostbook
+          ./setup_boostbook.sh
       - name: Check
         run: '"${{github.workspace}}/b2/b2" --debug-configuration "--build-dir=${{github.workspace}}/bin" libs/${{matrix.lib}}/doc//boostdoc libs/${{matrix.lib}}/doc//boostrelease'
