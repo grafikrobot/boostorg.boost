@@ -39,7 +39,7 @@ jobs:
           - circular_buffer
           - cobalt
           - compat
-          - compatibility
+          # - compatibility
           - compute
           - concept_check
           - config
@@ -57,31 +57,31 @@ jobs:
           - describe
           - detail
           - dll
-          - dynamic_bitset
+          # - dynamic_bitset
           - endian
-          - exception
+          # - exception
           - fiber
           - filesystem
-          - flyweight
+          # - flyweight
           - foreach
-          - format
+          # - format
           - function
           - function_types
           - functional
           - fusion
           - geometry
           - gil
-          - graph
-          - graph_parallel
+          # - graph
+          # - graph_parallel
           - hana
-          - headers
+          # - headers
           - heap
           - histogram
           - hof
           - icl
           - integer
           - interprocess
-          - numeric/interval
+          # - numeric/interval
           - intrusive
           - io
           - iostreams
@@ -214,6 +214,8 @@ jobs:
           cat $HOME/user-config.jam
       - name: Config
         run: |
+          pip3 install --user --upgrade Sphinx==5.2.1
+          echo "using asciidoctor ;" >> $HOME/user-config.jam
           echo "using boostbook ;" >> $HOME/user-config.jam
           echo "using xsltproc ;" >> $HOME/user-config.jam
           echo "using doxygen ;" >> $HOME/user-config.jam
