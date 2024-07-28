@@ -197,6 +197,8 @@ jobs:
             doxygen \
             fop \
             libsaxonhe-java \
+            texlive \
+            texlive-latex-extra \
             xsltproc
       - name: "Checkout Boost Root"
         uses: actions/checkout@main
@@ -211,7 +213,9 @@ jobs:
         run: |
           pip3 install --user --upgrade Sphinx==5.2.1
           echo "using asciidoctor ;" >> $HOME/user-config.jam
+          echo "using autoindex ;" >> $HOME/user-config.jam
           echo "using boostbook ;" >> $HOME/user-config.jam
+          echo "using quickbook ;" >> $HOME/user-config.jam
           echo "using xsltproc ;" >> $HOME/user-config.jam
           echo "using doxygen ;" >> $HOME/user-config.jam
           echo "using fop ;" >> $HOME/user-config.jam
