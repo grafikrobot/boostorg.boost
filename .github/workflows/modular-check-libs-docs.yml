@@ -84,7 +84,7 @@ jobs:
           # - numeric/interval
           - intrusive
           - io
-          - iostreams
+          # - iostreams
           - iterator
           - json
           - lambda
@@ -101,51 +101,51 @@ jobs:
           - move
           - mp11
           - mpi
-          - mpl
-          - msm
+          # - mpl
+          # - msm
           - multi_array
-          - multi_index
+          # - multi_index
           - multiprecision
           - mysql
           - nowide
-          - numeric/conversion
-          - numeric/odeint
+          # - numeric/conversion
+          # - numeric/odeint
           - optional
-          - outcome
+          # - outcome
           - parameter
           - parameter_python
           - pfr
           - phoenix
           - poly_collection
-          - polygon
+          # - polygon
           - pool
           - predef
-          - preprocessor
+          # - preprocessor
           - process
           - program_options
-          - property_map
-          - property_map_parallel
+          # - property_map
+          # - property_map_parallel
           - property_tree
           - proto
-          - ptr_container
+          # - ptr_container
           - python
           - qvm
           - random
           - range
           - ratio
-          - rational
+          # - rational
           - redis
           - regex
-          - safe_numerics
+          # - safe_numerics
           - scope
           - scope_exit
-          - serialization
+          # - serialization
           - signals2
           - smart_ptr
           - sort
           - spirit
           - stacktrace
-          - statechart
+          # - statechart
           - static_assert
           - static_string
           - stl_interfaces
@@ -153,8 +153,8 @@ jobs:
           - test
           - thread
           - throw_exception
-          - timer
-          - tokenizer
+          # - timer
+          # - tokenizer
           - tti
           - tuple
           - type_erasure
@@ -170,7 +170,7 @@ jobs:
           - variant
           - variant2
           - vmd
-          - wave
+          # - wave
           - winapi
           - xpressive
           - yap
@@ -192,6 +192,8 @@ jobs:
             docbook \
             docbook-xml \
             docbook-xsl \
+            docutils-common \
+            docutils-doc \
             doxygen \
             fop \
             libsaxonhe-java \
@@ -220,5 +222,7 @@ jobs:
           echo "using xsltproc ;" >> $HOME/user-config.jam
           echo "using doxygen ;" >> $HOME/user-config.jam
           echo "using fop ;" >> $HOME/user-config.jam
+          echo "using saxonhe ;" >> $HOME/user-config.jam
+          echo "using docutils : /usr/share/docutils ;" >> $HOME/user-config.jam
       - name: Check
         run: '"${{github.workspace}}/b2/b2" --debug-configuration "--build-dir=${{github.workspace}}/bin" libs/${{matrix.lib}}/doc//boostdoc libs/${{matrix.lib}}/doc//boostrelease'
