@@ -207,13 +207,6 @@ jobs:
       - name: B2
         working-directory: ${{github.workspace}}/b2
         run: ./bootstrap.sh
-      - name: BoostBook
-        run: |
-          export BOOST_ROOT=${PWD}
-          cd tools/boostbook
-          touch $HOME/user-config.jam
-          ./setup_boostbook.sh
-          cat $HOME/user-config.jam
       - name: Config
         run: |
           pip3 install --user --upgrade Sphinx==5.2.1
