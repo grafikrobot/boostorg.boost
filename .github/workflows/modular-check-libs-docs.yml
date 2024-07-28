@@ -184,7 +184,8 @@ jobs:
           sudo apt-get -o Acquire::Retries=3 -y install \
             g++-13 \
             liburing-dev \
-            doxygen
+            doxygen \
+            xsltproc
       - name: "Checkout Boost Root"
         uses: actions/checkout@main
         with: { submodules: true, path: "boostroot" }
