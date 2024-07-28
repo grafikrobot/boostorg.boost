@@ -197,7 +197,10 @@ jobs:
         run: ./bootstrap.sh
       - name: BoostBook
         run: |
+          export BOOST_ROOT=${PWD}
           cd tools/boostbook
+          touch $HOME/user-config.jam
           ./setup_boostbook.sh
+          cat $HOME/user-config.jam
       - name: Check
         run: '"${{github.workspace}}/b2/b2" --debug-configuration "--build-dir=${{github.workspace}}/bin" libs/${{matrix.lib}}/doc//boostdoc libs/${{matrix.lib}}/doc//boostrelease'
