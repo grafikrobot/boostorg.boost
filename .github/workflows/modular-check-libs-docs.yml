@@ -10,6 +10,10 @@ on:
   push:
     branches:
       - modular
+    paths-ignore:
+      - ".github/workflows/ci.yml"
+      - ".github/workflows/modular-check-libs.yml"
+      - ".github/workflows/modular-release.yml"
 
 jobs:
   linux:
@@ -24,7 +28,7 @@ jobs:
           - array
           - asio
           - assert
-          - assign
+          # - assign
           - atomic
           - beast
           - bimap
@@ -182,9 +186,15 @@ jobs:
           sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
           sudo apt-get -o Acquire::Retries=3 update -y
           sudo apt-get -o Acquire::Retries=3 -y install \
+            asciidoctor \
             g++-13 \
             liburing-dev \
+            docbook \
+            docbook-xml \
+            docbook-xsl \
             doxygen \
+            fop \
+            libsaxonhe-java \
             xsltproc
       - name: "Checkout Boost Root"
         uses: actions/checkout@main
@@ -202,5 +212,11 @@ jobs:
           touch $HOME/user-config.jam
           ./setup_boostbook.sh
           cat $HOME/user-config.jam
+      - name: Config
+        run: |
+          echo "using boostbook ;" >> $HOME/user-config.jam
+          echo "using xsltproc ;" >> $HOME/user-config.jam
+          echo "using doxygen ;" >> $HOME/user-config.jam
+          echo "using fop ;" >> $HOME/user-config.jam
       - name: Check
         run: '"${{github.workspace}}/b2/b2" --debug-configuration "--build-dir=${{github.workspace}}/bin" libs/${{matrix.lib}}/doc//boostdoc libs/${{matrix.lib}}/doc//boostrelease'

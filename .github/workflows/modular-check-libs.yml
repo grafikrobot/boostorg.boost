@@ -10,6 +10,10 @@ on:
   push:
     branches:
       - modular
+    paths-ignore:
+      - ".github/workflows/ci.yml"
+      - ".github/workflows/modular-check-libs-docs.yml"
+      - ".github/workflows/modular-release.yml"
 
 jobs:
   linux:

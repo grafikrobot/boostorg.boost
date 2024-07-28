@@ -5,6 +5,10 @@ on:
   push:
     branches:
       - modular
+    paths-ignore:
+      - ".github/workflows/modular-check-libs-docs.yml"
+      - ".github/workflows/modular-check-libs.yml"
+      - ".github/workflows/modular-release.yml"
     tags:
       - '**'
 
