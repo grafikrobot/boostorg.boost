@@ -187,8 +187,6 @@ jobs:
           sudo apt-get -o Acquire::Retries=3 update -y
           sudo apt-get -o Acquire::Retries=3 -y install \
             asciidoctor \
-            g++-13 \
-            liburing-dev \
             docbook \
             docbook-xml \
             docbook-xsl \
@@ -196,7 +194,10 @@ jobs:
             docutils-doc \
             doxygen \
             fop \
+            g++-13 \
+            ghostscript \
             libsaxonhe-java \
+            liburing-dev \
             texlive \
             texlive-latex-extra \
             xsltproc
