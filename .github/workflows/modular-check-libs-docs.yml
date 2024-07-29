@@ -213,7 +213,7 @@ jobs:
         run: |
           pip3 install --user --upgrade Sphinx==5.2.1
           echo "using asciidoctor ;" >> $HOME/user-config.jam
-          echo "using autoindex ;" >> $HOME/user-config.jam
+          echo "using auto-index ;" >> $HOME/user-config.jam
           echo "using boostbook ;" >> $HOME/user-config.jam
           echo "using quickbook ;" >> $HOME/user-config.jam
           echo "using xsltproc ;" >> $HOME/user-config.jam
