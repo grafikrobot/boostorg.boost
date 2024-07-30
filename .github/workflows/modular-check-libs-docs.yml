@@ -201,6 +201,8 @@ jobs:
             texlive \
             texlive-latex-extra \
             xsltproc
+          pip3 install --user --upgrade Sphinx==5.2.1
+          pip3 install --user --upgrade sphinx-boost==0.0.3
       - name: "Checkout Boost Root"
         uses: actions/checkout@main
         with: { submodules: true, path: "boostroot" }
@@ -212,7 +214,6 @@ jobs:
         run: ./bootstrap.sh
       - name: Config
         run: |
-          pip3 install --user --upgrade Sphinx==5.2.1
           echo "using asciidoctor ;" >> $HOME/user-config.jam
           echo "using auto-index ;" >> $HOME/user-config.jam
           echo "using boostbook ;" >> $HOME/user-config.jam
