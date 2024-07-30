@@ -203,6 +203,7 @@ jobs:
             xsltproc
           pip3 install --user --upgrade Sphinx==5.2.1
           pip3 install --user --upgrade sphinx-boost==0.0.3
+          pip3 install --user --upgrade myst-parser
       - name: "Checkout Boost Root"
         uses: actions/checkout@main
         with: { submodules: true, path: "boostroot" }
