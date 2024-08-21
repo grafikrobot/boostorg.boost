@@ -304,14 +304,23 @@ while true ; do
             repo=${repo/boostorg./}
             echo "gh pr list --repo=boostorg/${repo} --head=modular --json=number | grep -E \"([0-9]+)\" -o"
             pr=`gh pr list --repo=boostorg/${repo} --head=modular --json=number | grep -E "([0-9]+)" -o`
+            # Set branch for PR state..
+            if test -n "${pr}" ; then
+                echo PR number: ${pr}
+                echo git switch --no-guess "modular"
+                git switch --no-guess "modular"
+            else
+                echo git switch --no-guess "develop"
+                git switch --no-guess "develop"
+            fi
             if test -n "${pr}" ; then
                 echo PR number: ${pr}
                 # Ping PR is ready..
-                if [[ "${ready}" == *"${repo}"* ]] ; then
-                    echo "Status: In Progress"
-                    echo gh pr comment ${pr} --repo=boostorg/${repo} -b "Please review and merge this PR at your earliest convenience."
-                    gh pr comment ${pr} --repo=boostorg/${repo} -b "Please review and merge this PR at your earliest convenience."
-                fi
+                # if [[ "${ready}" == *"${repo}"* ]] ; then
+                #     echo "Status: In Progress"
+                #     echo gh pr comment ${pr} --repo=boostorg/${repo} -b "Please review and merge this PR at your earliest convenience."
+                #     gh pr comment ${pr} --repo=boostorg/${repo} -b "Please review and merge this PR at your earliest convenience."
+                # fi
                 # Mark PR "Ready"..
                 # if [[ "${ready}" == *"${repo}"* ]] ; then
                 #     echo "Status: Ready"
