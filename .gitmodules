@@ -828,3 +828,7 @@
 	url = https://github.com/grafikrobot/boostorg.scope.git
 	fetchRecurseSubmodules = on-demand
 	branch = .
+[submodule "boostlook"]
+	path = tools/boostlook
+	url = https://github.com/grafikrobot/boostorg.boostlook.git
+	branch = .
