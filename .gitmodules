@@ -353,11 +353,6 @@
 	url = https://github.com/grafikrobot/boostorg.type_traits.git
 	fetchRecurseSubmodules = on-demand
 	branch = .
-[submodule "compatibility"]
-	path = libs/compatibility
-	url = https://github.com/grafikrobot/boostorg.compatibility.git
-	fetchRecurseSubmodules = on-demand
-	branch = .
 [submodule "bind"]
 	path = libs/bind
 	url = https://github.com/grafikrobot/boostorg.bind.git
@@ -831,5 +826,20 @@
 [submodule "boostlook"]
 	path = tools/boostlook
 	url = https://github.com/grafikrobot/boostorg.boostlook.git
+	fetchRecurseSubmodules = on-demand
+	branch = .
+[submodule "parser"]
+	path = libs/parser
+	url = https://github.com/grafikrobot/boostorg.parser.git
+	fetchRecurseSubmodules = on-demand
+	branch = .
+[submodule "mqtt5"]
+	path = libs/mqtt5
+	url = https://github.com/grafikrobot/boostorg.mqtt5.git
+	fetchRecurseSubmodules = on-demand
+	branch = .
+[submodule "hash2"]
+	path = libs/hash2
+	url = https://github.com/grafikrobot/boostorg.hash2.git
 	fetchRecurseSubmodules = on-demand
 	branch = .

@@ -20,7 +20,9 @@ jobs:
         include:
           - os: ubuntu-20.04
           - os: ubuntu-22.04
+          - os: ubuntu-22.04-arm
           - os: ubuntu-24.04
+          - os: ubuntu-24.04-arm
           - os: macos-13
           - os: macos-14
           - os: macos-15
@@ -57,6 +59,7 @@ jobs:
         include:
           - os: windows-2019
           - os: windows-2022
+          - os: windows-2025
 
     runs-on: ${{matrix.os}}
 
@@ -92,7 +95,9 @@ jobs:
         include:
           - os: ubuntu-20.04
           - os: ubuntu-22.04
+          - os: ubuntu-22.04-arm
           - os: ubuntu-24.04
+          - os: ubuntu-24.04-arm
           - os: macos-13
           - os: macos-14
           - os: macos-15
@@ -127,6 +132,7 @@ jobs:
         include:
           - os: windows-2019
           - os: windows-2022
+          - os: windows-2025
 
     runs-on: ${{matrix.os}}
 
@@ -186,7 +192,9 @@ jobs:
         include:
           - os: ubuntu-20.04
           - os: ubuntu-22.04
+          - os: ubuntu-22.04-arm
           - os: ubuntu-24.04
+          - os: ubuntu-24.04-arm
           - os: macos-13
           - os: macos-14
           - os: macos-15
@@ -221,6 +229,7 @@ jobs:
         include:
           - os: windows-2019
           - os: windows-2022
+          - os: windows-2025
 
     runs-on: ${{matrix.os}}
 
