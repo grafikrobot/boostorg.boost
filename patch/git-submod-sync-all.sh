@@ -55,8 +55,8 @@ echo "===== boost -- upstream"
 cd "${rootdir}"
 echo git fetch -p upstream
 git fetch -p upstream
-echo git merge upstream/develop -m "Sync from upstream."
-git merge upstream/develop -m "Sync from upstream."
+echo git merge upstream/develop -m "Sync from upstream. [skip ci]"
+git merge upstream/develop -m "Sync from upstream. [skip ci]"
 
 echo "===== status"
 cd "${rootdir}"
