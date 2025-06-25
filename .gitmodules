@@ -843,3 +843,8 @@
 	url = https://github.com/grafikrobot/boostorg.hash2.git
 	fetchRecurseSubmodules = on-demand
 	branch = .
+[submodule "bloom"]
+	path = libs/bloom
+	url = https://github.com/grafikrobot/boostorg.bloom.git
+	fetchRecurseSubmodules = on-demand
+	branch = .
