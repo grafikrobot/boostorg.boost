@@ -33,6 +33,10 @@ while true ; do
             echo "Switch To: ${n}"
             echo git switch --no-guess "${n}"
             git switch --no-guess "${n}"
+            if [[ $? -ne 0 ]] ; then
+                echo git checkout "${n}"
+                # git checkout "${n}"
+            fi
        fi
     else
         break
