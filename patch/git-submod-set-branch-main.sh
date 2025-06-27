@@ -34,8 +34,8 @@ while true ; do
             echo git switch --no-guess "${n}"
             git switch --no-guess "${n}"
             if [[ $? -ne 0 ]] ; then
-                echo git checkout "${n}"
-                git checkout "${n}"
+                echo git checkout --no-guess -b "${n}" --track=origin
+                git checkout --no-guess -b "${n}" --track=origin
             fi
        fi
     else
