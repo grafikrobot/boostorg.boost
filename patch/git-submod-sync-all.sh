@@ -22,6 +22,8 @@ while true ; do
         echo "===== ${l_name} -- ${l_url} -- ${l_path}"
         echo gh repo sync grafikrobot/boostorg.${l_name} --branch develop --source boostorg/${l_name}
         gh repo sync grafikrobot/boostorg.${l_name} --branch develop --source boostorg/${l_name}
+        echo gh repo sync grafikrobot/boostorg.${l_name} --branch master --source boostorg/${l_name}
+        gh repo sync grafikrobot/boostorg.${l_name} --branch master --source boostorg/${l_name}
         cd "${rootdir}/${l_path}"
         echo git status -s -b
         git status -s -b
@@ -31,19 +33,12 @@ while true ; do
         git fetch -p upstream
         b=`git branch --show-current`
         echo "Current Branch: ${b}"
-        if [[ "${b}" == "modular" ]] ; then
-            echo git checkout modular
-            git checkout modular
-            echo git pull origin modular
-            git pull origin modular
-        else
-            echo git checkout develop
-            git checkout develop
-            echo git pull origin develop
-            git pull origin develop
-        fi
-        echo git merge upstream/develop -m "Sync from upstream."
-        git merge upstream/develop -m "Sync from upstream."
+        echo git checkout ${b}
+        git checkout ${b}
+        echo git pull origin ${b}
+        git pull origin ${b}
+        echo git merge upstream/${b} -m "Sync from upstream."
+        git merge upstream/${b} -m "Sync from upstream."
         echo git status -s -b
         git status -s -b
     else
