@@ -35,7 +35,7 @@ while true ; do
             git switch --no-guess "${n}"
             if [[ $? -ne 0 ]] ; then
                 echo git checkout "${n}"
-                # git checkout "${n}"
+                git checkout "${n}"
             fi
        fi
     else
