@@ -19,8 +19,17 @@ while true ; do
         [[ $l_url =~ url...(.*) ]]
         l_url=${BASH_REMATCH[1]}
         cd "${rootdir}/${l_path}"
-        if [[ ! -e build.jam ]] ; then
-            echo "===== ${l_name} -- ${l_url} -- ${l_path} <== NOT MODULAR"
+        hash=`git log --author=grafikrobot -n 1 --grep=modular --pretty='%h'`
+        if [[ -e build.jam ]] ; then
+            continue
+        elif [[ "more" == "${l_name}" ]] ; then
+            continue
+        elif [[ "cmake" == "${l_name}" ]] ; then
+            continue
+        elif [[ "litre" == "${l_name}" ]] ; then
+            continue
+        elif [[ "" == "${hash}" ]] ; then
+            echo "===== ${l_path} -- ${l_name} -- ${l_url} <== NOT MODULAR"
         fi
     else
         break
